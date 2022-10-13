@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/FCInject_Qt">
+        <file>background.jpeg</file>
+        <file>icon.jpeg</file>
+        <file>icon2.jpeg</file>
+        <file>green.png</file>
+    </qresource>
+</RCC>
