@@ -169,16 +169,14 @@ void exQT::Check() {
 			if (myheap[i] == temp) {//将创建的堆信息与释放的堆信息进行匹配
 				//存在创建的对应信息
 				myheap[i] = 0;
-				QString string;
-				string += "heapfree balancedly!\n";//正常释放
+				QString string = "heapfree balancedly\n";//正常释放
 				emit updateTextBrowser(string);
 				break;
 			}
 		}
 		if (i == 20) {
 			//存在创建的对应信息,Double Free
-			QString string;
-			string += "heapfree abnormally!\n";
+			QString string = "heapfree abnormally!\n";
 			emit updateTextBrowser(string);
 		}
 	}
@@ -226,8 +224,7 @@ void exQT::Check() {
 		}
 
 		if (folderindex.size() >= 2) {
-			QString string;
-			string += "WARNING! ! ! Edited multiple folders!\n";
+			QString string = "WARNING! ! ! Edited multiple folders!\n";
 			emit updateTextBrowser(string);
 		}
 
@@ -239,33 +236,28 @@ void exQT::Check() {
 				fileindex.insert(fileName);
 			}
 			else {
-				QString string;
-				string += "WARNING! ! ! Might exists self-replication!\n";
+				QString string = "WARNING! ! ! Might exists self-replication!\n";
 				emit updateTextBrowser(string);
 			}
 		}
 
 		if (temp & GENERIC_WRITE) {
 			if (strstr(fileName, ".ocx") || strstr(fileName, ".dll") || strstr(fileName, ".exe")) {
-				QString string;
-				string += "WARNING! ! ! Might modify other executable code!\n";
+				QString string = "WARNING! ! ! Might modify other executable code!\n";
 				emit updateTextBrowser(string);
 			}
 		}
 	}
 	if (!strcmp(RecvInfo.ArgumentValue[0], "RegCreateKey")) {
-		QString string;
-		string += "WARNING! ! !RegCreatekey detected!\n";
+		QString string = "WARNING! ! !RegCreatekey detected!\n";
 		emit updateTextBrowser(string);
 		if (strstr(RecvInfo.ArgumentValue[2], "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run")) {
-			QString string;
-			string += "WARNING! ! ! Modifiying the startup key!\n";
+			QString string = "WARNING! ! ! Modifiying the startup key!\n";
 			emit updateTextBrowser(string);
 		}
 	}
 	if (!strcmp(RecvInfo.ArgumentValue[0], "RegSetValue")) {
-		QString string;
-		string += "WARNING! ! ! RegSetValue detected!\n";
+		QString string = "WARNING! ! ! RegSetValue detected!\n";
 		emit updateTextBrowser(string);
 	}
 }
